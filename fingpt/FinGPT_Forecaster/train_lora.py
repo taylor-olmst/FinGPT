@@ -1,3 +1,25 @@
+"""
+This script trains a LoRA-based language model for forecasting using FinGPT.
+
+The script performs the following steps:
+1. Imports necessary libraries and modules.
+2. Defines a callback class for evaluating generated texts during training.
+3. Defines the main function that handles the training process.
+4. Parses command-line arguments.
+5. Loads the pre-trained language model.
+6. Loads the training and evaluation datasets.
+7. Tokenizes the datasets and filters out examples that exceed the maximum length.
+8. Sets up the training arguments.
+9. Configures the LoRA model.
+10. Initializes the Trainer object for training.
+11. Trains the model.
+12. Saves the trained model.
+
+Usage:
+python train_lora.py --local_rank <local_rank> --run_name <run_name> --dataset <dataset> --test_dataset <test_dataset> --base_model <base_model> --max_length <max_length> --batch_size <batch_size> --learning_rate <learning_rate> --weight_decay <weight_decay> --num_epochs <num_epochs> --num_workers <num_workers> --log_interval <log_interval> --gradient_accumulation_steps <gradient_accumulation_steps> --warmup_ratio <warmup_ratio> --ds_config <ds_config> --scheduler <scheduler> --instruct_template <instruct_template> --evaluation_strategy <evaluation_strategy> --eval_steps <eval_steps> --from_remote <from_remote>
+"""
+
+... (existing code)
 from transformers.integrations import TensorBoardCallback
 from transformers import AutoTokenizer, AutoModel, AutoModelForCausalLM
 from transformers import TrainingArguments, Trainer, DataCollatorForSeq2Seq
@@ -27,7 +49,7 @@ from peft import (
 )
 
 # Replace with your own api_key and project name
-os.environ['WANDB_API_KEY'] = 'ecf1e5e4f47441d46822d38a3249d62e8fc94db4'
+os.environ['WANDB_API_KEY'] = '9ad5486ba2eac5dc74a2c83e65cc248180b419b0'
 os.environ['WANDB_PROJECT'] = 'fingpt-forecaster'
 
 

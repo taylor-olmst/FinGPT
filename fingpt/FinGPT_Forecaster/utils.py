@@ -123,6 +123,22 @@ def calc_rouge_score(references, answers):
 
     
 def calc_metrics(answers, gts):
+    """
+    Calculate various metrics for evaluating the performance of a forecasting model.
+
+    Args:
+        answers (list): List of predicted answers.
+        gts (list): List of ground truth answers.
+
+    Returns:
+        dict: A dictionary containing the following metrics:
+            - valid_count (int): Number of valid predictions.
+            - bin_acc (float): Binary accuracy score.
+            - mse (float): Mean squared error.
+            - pros_rouge_scores (dict): Rouge scores for positive developments.
+            - cons_rouge_scores (dict): Rouge scores for potential concerns.
+            - anal_rouge_scores (dict): Rouge scores for summary analysis.
+    """
     
     answers_dict = defaultdict(list)
     gts_dict = defaultdict(list)

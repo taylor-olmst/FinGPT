@@ -1,3 +1,42 @@
+"""
+This script contains the implementation of the FinGPT-Forecaster application. 
+It utilizes the FinGPT model to generate predictions and analysis for stock price movements based on relevant news and basic financials.
+
+The script includes functions for retrieving stock data, company news, and basic financials from various APIs.
+It also provides functions for constructing prompts, generating predictions, and displaying the results.
+
+The main function in this script is `predict`, which takes the following parameters:
+- ticker: The stock symbol of the company to predict.
+- date: The date from which the prediction is made.
+- n_weeks: The number of weeks of historical data to consider.
+- use_basics: A boolean indicating whether to include the latest basic financials in the analysis.
+
+The `predict` function returns the information about the company and the generated prediction as a tuple.
+
+The script also includes a Gradio interface (`demo`) for interacting with the `predict` function.
+The interface allows users to input the stock symbol, date, number of weeks, and choose whether to include the latest basic financials.
+The interface displays the information about the company and the generated prediction.
+
+Note: This script requires the installation of various dependencies, such as finnhub, torch, gradio, pandas, yfinance, and transformers.
+"""
+
+import os
+import re
+import time
+import json
+import random
+import finnhub
+import torch
+import gradio as gr
+import pandas as pd
+import yfinance as yf
+from pynvml import *
+from peft import PeftModel
+from collections import defaultdict
+from datetime import date, datetime, timedelta
+from transformers import AutoTokenizer, AutoModelForCausalLM, TextStreamer
+
+# Rest of the code...
 import os
 import re
 import time
